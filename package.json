@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "watch": "next-remote-watch ./posts"
+    "watch": "next-remote-watch ./posts",
+    "clean": "rm -rf .next out"
   },
   "dependencies": {
     "@types/node": "^18.14.4",

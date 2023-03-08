@@ -2,21 +2,21 @@
 
 :root {
   --color-bg-dark: rgb(0, 0, 0);
-  --color-bg-dark-match: rgb(46, 48, 50);
+  --color-bg-dark-match: rgb(71, 71, 71);
   --color-bg-light: rgb(255, 255, 255);
-  --color-bg-light-match: rgb(248, 248, 248);
-  --color-bg-blend: rgba(117, 117, 117, 0.185);
+  --color-bg-light-match: rgb(232, 232, 232);
+  --color-bg-blend: rgba(179, 179, 179, 0.185);
   --color-main: rgb(47, 97, 67);
   --color-link: rgb(70, 119, 188);
   --variable-object-radius: .375rem;
-  font-size: 16px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: var(--color-bg-dark);
     --font: var(--color-bg-light-match);
-    --term: var(--color-bg-dark-match);
+    --off: rgb(128, 128, 128);
+    --dull: rgb(114, 114, 114);
   }
 }
 
@@ -24,15 +24,18 @@
   :root {
     --bg: var(--color-bg-light);
     --font: var(--color-bg-dark-match);
-    --term: var(--color-bg-light-match);
+    --off: rgb(143, 143, 143);
+    --dull: rgb(130, 130, 130);
   }
 }
 
 body {
-  max-width: 800px;
+  max-width: 700px;
   margin: auto;
   background: var(--bg);
   color: var(--font);
+  font-size: 16px;
+  line-height: 1.5;
   font-family: 'blinkmacsystemfont', 'helvetica neue', 'arial', 'noto sans', 'sans-serif',
     'apple color emoji', 'segoe ui', 'roboto', 'segoe ui emoji',
     'segoe ui symbol', 'noto color emoji';
@@ -40,51 +43,57 @@ body {
 
 a {
   color: inherit;
-
 }
 
 main a {
-  text-decoration: underline;
-  text-decoration-color: gray;
+  text-decoration-color: var(--off);
+  transition: background .05s, color .05s;
 }
 
 main a:hover {
-  color: black;
-  background: white;
+  color: var(--bg);
+  background: var(--font);
 }
 
-main.post a {
-  text-decoration-color: rgb(255, 255, 195);
+.post {
+  margin: 4px 0;
 }
 
 .me {
   text-decoration: none;
 }
 
-.posts,
-.tags,
-header,
-.post-body {
-  margin-top: 44px;
-}
-
 header {
-  margin-bottom: 104px;
+  margin: 44px 0 104px 0;
 }
 
 .date {
-  color: gray;
+  color: var(--dull);
   margin-left: 12px;
 }
 
-.tags {
-  display: inline-block;
+.post-ln {
+  margin: 3px 0;
 }
 
 pre {
-  border-radius: var(--variable-object-radius)
+  border-radius: var(--variable-object-radius);
 }
 
-.post-ln {
-  margin: 5px 0;
+::-webkit-scrollbar {
+  border-radius: none;
+  background: var(--color-bg-blend);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--font);
+}
+
+pre::-webkit-scrollbar {
+  border-bottom-left-radius: var(--variable-object-radius);
+  border-bottom-right-radius: var(--variable-object-radius);
+}
+
+pre::-webkit-scrollbar-thumb {
+  border-radius: var(--variable-object-radius)
 }
