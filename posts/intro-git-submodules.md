@@ -1,6 +1,9 @@
 ---
 title: "Introduction to Git submodules, and avoiding some pitfalls"
 date: "2021-09-16"
+tags:
+    - ops
+    - programming
 ---
 The [documentation](https://git-scm.com/book/en/v2/Git-Tools-Submodules) on this topic is a little intimidating at first glance. I was not able to find a quick start for this tool anywhere on the web, so here is an abridged introduction in my own words.
 

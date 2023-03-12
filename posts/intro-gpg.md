@@ -1,6 +1,8 @@
 ---
 title: "Introduction to Encrypting with GPG"
 date: "2020-12-04"
+tags:
+    - security
 ---
 GPG is a tool that you can use to encrypt and decrypt messages, among other things. Many guides exist to provide a highly detailed
 introduction to this tool and encryption as a whole, so here is one that serves more as a reference guide for those of us that have

@@ -1,6 +1,8 @@
 ---
 title: "Introduction to Ansible, and managing infrastructure" 
 date: "2022-04-08"
+tags:
+    - ops
 ---
 Ansible is a software deployment tool that you can use to set up your home server. You will organize commands into [playbooks](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html) and run them against [managed nodes](https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html#managed-nodes) from a [control node](https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html#control-node). The control node can be a device running macOS or a linux distribution. Windows is not directly supported, so WSL2 or a virtual machine is required.
 

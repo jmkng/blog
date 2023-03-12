@@ -1,6 +1,8 @@
 ---
 title: "Fixing your APIs infinite loop"
 date: "2021-09-16"
+tags:
+    - programming
 ---
 If you are new to backend development, you will most likely encounter something like this:
 
