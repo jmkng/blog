@@ -1,0 +1,9 @@
+.tag {
+    border-radius: var(--variable-object-radius);
+    border: 1px solid var(--font);
+    padding: 0 6px;
+    transition:
+        var(--variable-object-speed) background ease-in-out,
+        var(--variable-object-speed) color ease-in-out;
+    text-decoration: none;
+}

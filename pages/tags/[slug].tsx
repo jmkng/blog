@@ -1,25 +1,27 @@
 import type { GetStaticProps, GetStaticPaths } from "next";
+import styles from './[slug].module.css';
 import { getEntries } from "../../lib/data";
+import Ref from "../../components/Ref";
 
-export default function TagPage({ slug, posts }) {
+export default function TagPage({ slug, entries }) {
     return (
         <div>
-            <h1>{ slug }</h1>
-            {posts.map(post => {
-                return <a key={post.data.title} href={`/posts/${post.slug}`}>{post.data.title}</a>
-            })}
+            <h1>Tagged with "{ slug }"</h1>
+            <div className={styles['tag-list']}>
+            {entries.map(post => <Ref key={slug} text={post.data.title} date={post.data.date} href={`/posts/${post.slug}`} />)}
+            </div>
         </div>
     )
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const { slug } = params as { slug: string };
-    const posts = getEntries('posts').filter((post) => post.data.tags.includes(slug));
+    const entries = getEntries('posts').filter((post) => post.data.tags.includes(slug));
 
     return {
         props: {
             slug,
-            posts,
+            entries,
         },
     };
 };

@@ -1,0 +1,10 @@
+.tag-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.post:nth-child(odd) {
+    background: var(--near);
+}
+
+.post:nth-child(even) {}

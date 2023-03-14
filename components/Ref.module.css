@@ -1,0 +1,8 @@
+.ref {
+    margin: 3px 0;
+}
+
+.date {
+    color: var(--dull);
+    margin-left: 12px;
+}

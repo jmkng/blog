@@ -1,0 +1,8 @@
+.me {
+    text-decoration: none;
+}
+
+.me:hover {
+    background: none;
+    color: var(--font);
+}

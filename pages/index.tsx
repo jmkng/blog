@@ -1,7 +1,14 @@
-import Link from 'next/link';
 import { Entry, getEntries } from '../lib/data';
+import styles from './_index.module.css';
+import Tag from '../components/Tag';
+import Ref from '../components/Ref';
 
-export default function Home({ tags, entries }: { tags, entries: Entry[] }) {
+interface HomeProps {
+  tags: string[]
+  entries: Entry[]
+}
+
+export default function Home({ tags, entries }: HomeProps) {
   return (
     <main>
       <h2>Me</h2>
@@ -10,37 +17,23 @@ export default function Home({ tags, entries }: { tags, entries: Entry[] }) {
       </p>
 
       <h2 className="posts">Posts</h2>
-      {entries.map(e => {
-        const { slug, data } = e
-        const { title, date } = data
-        return (
-          <div key={slug} className='post-ln'>
-            <Link href={`/posts/${slug}`} className="title">{title}</Link>
-            <span className="date">{date}</span>
-          </div>
-        )
-      })}
+      {entries.map(e => <Ref key={e.data.title} text={e.data.title} date={e.data.date} href={`/posts/${e.slug}`} />)}
 
-      <h2>Tags</h2>
-      {tags.map(t => {
-        return (
-          <div key={t.slug} className='post-ln'>
-            <Link href={`/tags/${t}`} className="title">{t}</Link>
-          </div>
-        )
-      })}
+      <h2 className={styles.tags}>Tags</h2>
+      <div className={styles['tag-list']}>
+        {tags.map(t => <Tag key={t} text={t} link={`/tags/${t}`} />)}
+      </div>
     </main>
   )
 }
 
 export async function getStaticProps() {
-  const tags = new Set(getEntries('posts').map((post) => post.data.tags).flat())
-  
-  
+  const entries = getEntries('posts');
+  const tags = new Set(entries.map((post) => post.data.tags).flat())
   return {
     props: {
       tags: Array.from(tags),
-      entries: getEntries('posts'),
+      entries: entries,
     },
   };
 }

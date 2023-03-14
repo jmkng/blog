@@ -9,6 +9,7 @@
   --color-main: rgb(47, 97, 67);
   --color-link: rgb(70, 119, 188);
   --variable-object-radius: .375rem;
+  --variable-object-speed: .125s;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,6 +18,7 @@
     --font: var(--color-bg-light-match);
     --off: rgb(128, 128, 128);
     --dull: rgb(114, 114, 114);
+    --near: rgb(32, 32, 32);
   }
 }
 
@@ -26,6 +28,7 @@
     --font: var(--color-bg-dark-match);
     --off: rgb(143, 143, 143);
     --dull: rgb(130, 130, 130);
+    --near: rgb(246, 246, 246);
   }
 }
 
@@ -34,8 +37,7 @@ body {
   margin: auto;
   background: var(--bg);
   color: var(--font);
-  font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.75;
   font-family: 'blinkmacsystemfont', 'helvetica neue', 'arial', 'noto sans', 'sans-serif',
     'apple color emoji', 'segoe ui', 'roboto', 'segoe ui emoji',
     'segoe ui symbol', 'noto color emoji';
@@ -43,37 +45,19 @@ body {
 
 a {
   color: inherit;
-}
-
-main a {
   text-decoration-color: var(--off);
-  transition: background .05s, color .05s;
+  transition:
+    var(--variable-object-speed) background ease-in-out,
+    var(--variable-object-speed) color ease-in-out;
 }
 
-main a:hover {
+a:hover {
   color: var(--bg);
   background: var(--font);
 }
 
-.post {
-  margin: 4px 0;
-}
-
-.me {
-  text-decoration: none;
-}
-
 header {
   margin: 44px 0 104px 0;
-}
-
-.date {
-  color: var(--dull);
-  margin-left: 12px;
-}
-
-.post-ln {
-  margin: 3px 0;
 }
 
 pre {
@@ -87,6 +71,7 @@ pre {
 
 ::-webkit-scrollbar-thumb {
   background: var(--font);
+  border-radius: var(--variable-object-radius);
 }
 
 pre::-webkit-scrollbar {
@@ -95,5 +80,5 @@ pre::-webkit-scrollbar {
 }
 
 pre::-webkit-scrollbar-thumb {
-  border-radius: var(--variable-object-radius)
+  border-radius: var(--variable-object-radius);
 }

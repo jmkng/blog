@@ -1,0 +1,9 @@
+.tag-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.tag-list>*:hover {
+    color: var(--font);
+    background: var(--bg);
+}

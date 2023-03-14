@@ -1,9 +1,9 @@
 import fs from "fs";
 import matter from "gray-matter";
-import { markdownToHtml } from "../../types/md";
+import { markdownToHtml } from "../../lib/md";
 
 export default function Post({ frontmatter, content }) {
-  const { title } = frontmatter
+  const { title } = frontmatter;
 
   return (
     <main className='post'>
@@ -34,6 +34,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { slug } }) {
   const fileName = fs.readFileSync(`posts/${slug}.md`, 'utf-8');
   const { data: frontmatter, content } = matter(fileName);
+
   return {
     props: {
       frontmatter,

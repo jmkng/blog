@@ -1,0 +1,24 @@
+.tag-list {
+    display: flex;
+}
+
+.tag-list>*:first-of-type {
+    margin-left: 0;
+}
+
+.tag-list>*:last-of-type {
+    margin-right: 0;
+}
+
+.tag-list>* {
+    margin: 0 4px;
+}
+
+.tags {
+    margin-bottom: 0;
+}
+
+.view-all {
+    display: inline-block;
+    margin-bottom: 22px;
+}
